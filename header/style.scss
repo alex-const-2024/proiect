@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: 'Circular';
   src: url('custom-font.woff2');
@@ -9,6 +11,12 @@
 
 body {
   margin: 0;
+
+  font-family: Circular;
+  background-color: #1c1c1c;
+}
+
+button {
   font-family: Circular;
 }
 
@@ -17,13 +25,15 @@ img {
 }
 
 header {
-  height: 64px;
+  $header-height: 64px;
+  height: $header-height;
 
   display: flex;
   align-items: center;
 
   background-color: #1c1c1c;
   color: #fff;
+  border-bottom: 1px solid #2e2e2e;
 
   .inner-header {
     width: 100%;
@@ -33,25 +43,194 @@ header {
     display: flex;
     justify-content: space-between;
 
-    .logo {
-      height: 24px;
+    > .left {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        height: 24px;
+      }
+
+      nav {
+        ul {
+          display: flex;
+  
+          li {
+            position: relative;
+            padding: 5px 12px;
+
+            display: flex;
+            align-items: center;
+  
+            list-style: none;
+  
+            a {
+              display: flex;
+              align-items: center;
+
+              font-size: 14px;
+  
+              color: #fff;
+              text-decoration: none;
+
+              .arrow {
+                margin-left: 5px;
+                width: 12px;
+                margin-bottom: -1px;
+
+                transition: transform 130ms ease-out;
+              }
+            }
+
+            .dropdown {
+              display: none;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: $header-height + 5px;
+    
+              .inner-dropdown {
+                position: absolute;
+                width: 700px;
+                margin-top: $header-height + 5px;
+                padding: 24px;
+
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                row-gap: 5px;
+
+                background-color: #1c1c1c;
+                color: #fff;
+                border: 1px solid #2e2e2e;
+                border-radius: 8px;
+
+                .dropdown-item {
+                  padding: 8px;
+
+                  display: flex;
+
+                  .left {
+                    width: 40px;
+                    height: 40px;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    background-color: rgb(40, 40, 40);
+                    border-radius: 6px;
+
+                    svg {
+                      color: rgb(126, 126, 126);
+                      height: 22px;
+                    }
+                  }
+
+                  .right {
+                    font-size: 14px;
+                    padding-left: 13px;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    
+
+                    .subtitle {
+                      color: rgb(126, 126, 126);
+                    }
+                  }
+                }
+              }
+            }
+
+            &:hover {
+              .dropdown {
+                display: block;
+                
+                cursor: pointer;
+              }
+
+              a {
+                color: #3ecf8e;
+
+                .arrow {
+                  transform: rotateZ(180deg);
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
-    .github-count {
-      font-size: 12px;
-      padding: 4px 10px;
+    > .right {
+      display: flex;
+      align-items: center;
 
-      background-color: transparent;
-      border: none;
-      border-radius: 6px;
-      color: rgb(160, 160, 160);
-      transition-property: background-color;
-      transition-duration: 0.5s;
+      button {
+        padding: 4px 10px;
 
+        border-radius: 6px;
 
-      &:hover {
-        background-color: rgb(46, 46, 46);
-        cursor: pointer;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .github-count {
+        font-size: 12px;
+        margin-right: 8px;
+  
+        display: inline-flex;
+        align-items: center;
+  
+        background-color: transparent;
+        border: none;
+        color: rgb(160, 160, 160);
+        transition-property: background-color;
+        transition-duration: 0.5s;
+  
+  
+        &:hover {
+          background-color: rgb(46, 46, 46);
+        }
+
+        .github-icon {
+          width: 24px;
+          margin-right: 5px;
+        }
+      }
+
+      .sign-in {
+        $background-color: #2e2e2e;
+        padding: 4px 10px;
+        margin-right: 8px;
+
+        border-width: 1px;
+        border-style: solid;
+        border-color: #383838;
+        background-color: $background-color;
+        color: #fff;
+        transition: background-color 0.2s linear;
+
+        &:hover {
+          background-color: scale-color($color: $background-color, $lightness: -15%);
+        }
+      }
+
+      .start-project {
+        $background-color: #37996b; 
+        background-color: $background-color;
+        border-color: #6ee7b7;
+        border-style: solid;
+        border-width: 1px;
+        color: #fff;
+        transition: background-color 0.2s linear;
+
+        &:hover {
+          background-color: scale-color($color: $background-color, $lightness: -15%);
+        }
       }
     }
   }
