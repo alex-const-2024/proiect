@@ -38,6 +38,15 @@ img {
     font-size: 30px;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   form {
     display: flex;
     flex-direction: column;
