@@ -1,12 +1,33 @@
+
+function validateInputs() {
+  let inputsValid = true;
+
+  if ($('#email').val() === '') {
+    showInputError('#email_error', 'This input is required.');
+    inputsValid = false;
+  }
+
+  if ($('#password').val() === '') {
+    showInputError('#password_error', 'This input is required.');
+    inputsValid = false;
+  }
+
+  return inputsValid;
+}
+
 $(function () {
   $('form').on('submit', function (event) {
     event.preventDefault();
+    resetError();
+    resetInputErrors();
+
+    if (!validateInputs()) return;
 
     const email = $('#email').val();
     const password = $('#password').val();
 
     if (localStorage.getItem('accounts') === null) {
-      console.log('There are no accounts');
+      showError('There are no accounts');
       return;
     }
 
@@ -25,7 +46,7 @@ $(function () {
       localStorage.setItem('currentUser', email);
       window.location = 'index.html';
     } else {
-      console.log('No matching account was found.');
+      showError('No matching account was found.');
     }
   });
 })

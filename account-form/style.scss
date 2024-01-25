@@ -85,5 +85,25 @@ img {
         cursor: pointer;
       }
     }
+
+    .error {
+      display: none;
+      font-size: 1.5em;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.5em 1em;
+
+      background-color: #dc2626;
+      color: #fff;
+    }
+
+    .input-error {
+      display: none;
+      margin-bottom: 1.5em;
+
+      color: #dc2626;
+    }
   }
 }
