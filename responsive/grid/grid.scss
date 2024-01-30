@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Merlo';
+  src: url('../fonts/Merlo-Regular.woff2');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Merlo';
+  src: url('../fonts/Merlo-Bold.woff2');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Reforesta';
+  src: url('../fonts/Reforesta-Medium.woff2');
+}
+
+$breakpoint: 600px;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+
+  @media (max-width: $breakpoint) {
+    font-size: 15px;
+  }
+}
+
+body {
+  margin: 0;
+
+  font-family: Reforesta;
+}
+
+img {
+  display: block;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+  @media (max-width: $breakpoint) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product {
+    position: relative;
+
+    img {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .title, .price {
+      @media (max-width: $breakpoint) {
+        font-size: 12px;
+      }
+    }
+
+    .price {
+      display: flex;
+
+      .regular {
+        margin-right: 4px;
+        text-decoration: line-through;
+      }
+
+      .discounted {
+        color: rgb(154, 79, 74);
+      }
+    }
+
+    .label {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 0 10px;
+      
+      border-radius: 1em;
+      background-color: #516559;
+      color: #eeeee9;
+
+      @media (max-width: $breakpoint) {
+        font-size: 11px;
+      }
+    }
+  }
+}

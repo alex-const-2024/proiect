@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Merlo';
-  src: url('Merlo-Regular.woff2');
+  src: url('../fonts/Merlo-Regular.woff2');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Merlo';
-  src: url('Merlo-Bold.woff2');
+  src: url('../fonts/Merlo-Bold.woff2');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Reforesta';
-  src: url('Reforesta-Medium.woff2');
+  src: url('../fonts/Reforesta-Medium.woff2');
 }
 
 $breakpoint: 400px;
